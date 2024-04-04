@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding-bottom: 60px; /* Menambahkan padding ke bagian bawah halaman */
+  }
+  
+  .navbar {
+    background-color: rgba(0, 2, 32, 0.8) !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .navbar-nav .nav-link {
+    color: white !important; 
+  }
+  .navbar-nav.btn{
+    color: white;
+  }
+  
+  .navbar-brand {
+    color: white !important;
+    font-size: 3.5vh;
+  }
+  
+  .home h1 {
+    margin-bottom: 20px;
+    margin-top: 50px; /* Menurunkan h1 */
+}
+
+.home p {
+    margin-bottom: 30px; /* Menurunkan paragraf */
+}
+
+.home .btn {
+    position: relative;
+    bottom: -20px; /* Menyesuaikan posisi vertikal tombol */
+}
+  
+  .home .lead {
+    margin-bottom: 40px;
+  }
+  
+.home {
+    position: relative; /* Pastikan posisi relatif */
+    margin-top: 60px; /* Menyesuaikan margin-top dengan tinggi navbar */
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.home::before {
+    content: "";
+    position: absolute; /* Membuat posisi absolut */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(img/bg1.jpg);
+    background-size: cover;
+    filter: blur(3px); /* Efek blur */
+    z-index: -1; /* Menempatkan latar belakang di belakang elemen utama */
+}
+  .home .container {
+    margin-top: -100px; /* Menyesuaikan posisi vertikal teks */
+  }
+
+  .aboutus {
+    padding: 100px 0;
+    background-color: #f8f9fa; /* Background color */
+}
+.aboutus h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+.aboutus p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #666;
+}
+.aboutus .btn {
+    font-size: 18px;
+}
+.aboutus .row {
+    margin-top: 50px;
+}
+.aboutus .col-md-6 {
+    display: flex;
+    align-items: center;
+}
+.aboutus .image {
+    text-align: center;
+}
+.aboutus .image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.contact{
+    background-color: whitesmoke;
+}
