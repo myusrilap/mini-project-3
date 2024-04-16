@@ -30,6 +30,15 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['job_i
     }
 }
 
+// Fungsi untuk logout
+if (isset($_GET['logout'])) {
+    // Hapus semua data sesi
+    session_destroy();
+    // Redirect ke halaman utama setelah logout
+    header("Location: index.php");
+    exit;
+}
+
 // Query untuk mengambil data pengguna
 $sql_user = "SELECT * FROM Users WHERE username = '$username'";
 $result_user = $conn->query($sql_user);
@@ -55,10 +64,14 @@ $result_applied_jobs = $conn->query($sql_applied_jobs);
 <body>
 
 <div class="container mt-5">
-    <h1>User Dashboard</h1>
+    <div class="text-end mb-3">
+        <a href="?logout" class="btn btn-danger">Logout</a>
+    </div>
+
+    <h1 class="text-center mb-5">User Dashboard</h1>
 
     <!-- Data Diri -->
-    <div class="card mt-3">
+    <div class="card">
         <h5 class="card-header">Data Diri</h5>
         <div class="card-body">
             <?php

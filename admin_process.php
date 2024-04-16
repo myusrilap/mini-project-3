@@ -76,13 +76,20 @@ if (isset($_GET['action'])) {
     } elseif ($action === 'delete') {
         // Jika aksi adalah 'delete', hapus data berdasarkan ID
         $id = $_GET['id'];
-        $sql = "DELETE FROM Jobs WHERE id=$id";
-
-        if ($conn->query($sql) === TRUE) {
-            header("Location: admin.php"); // Setelah berhasil menghapus, kembali ke halaman admin
-            exit;
+    
+        // Hapus terlebih dahulu entri yang terkait di tabel registrations
+        $sql_delete_registrations = "DELETE FROM registrations WHERE job_id = $id";
+        if ($conn->query($sql_delete_registrations) === TRUE) {
+            // Sekarang, hapus baris dari tabel Jobs
+            $sql_delete_job = "DELETE FROM Jobs WHERE id = $id";
+            if ($conn->query($sql_delete_job) === TRUE) {
+                header("Location: admin.php"); // Setelah berhasil menghapus, kembali ke halaman superadmin
+                exit;
+            } else {
+                echo "Error deleting job: " . $conn->error;
+            }
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error deleting related registrations: " . $conn->error;
         }
     }
 }

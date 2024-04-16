@@ -12,6 +12,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background-image: url('img/bg2.jpg'); /* Ganti 'path_to_your_image.jpg' dengan path relatif atau absolut ke gambar Anda */
+            background-size: cover; /* Untuk memastikan gambar meliputi seluruh area latar belakang */
+            background-position: center; /* Untuk mengatur posisi gambar latar belakang */
         }
     </style>
 </head>
